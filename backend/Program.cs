@@ -1,13 +1,15 @@
 using backend.Database;
 using Microsoft.EntityFrameworkCore;
+using backend.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<sqliteDbContext>(options => {
-    options.UseSqlite(
-        builder.Configuration.GetConnectionString("Sqlite")
+builder.Services.AddDbContext<sqlServerDbContext>(options => {
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("SqlServer")
     );
 });
+builder.Services.AddTransient<IUserContext,sqlServerUserContext>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

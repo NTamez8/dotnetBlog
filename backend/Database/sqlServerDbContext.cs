@@ -2,9 +2,9 @@ using Microsoft.EntityFrameworkCore;
 using backend.Models;
 namespace backend.Database
 {
-    class sqliteDbContext: DbContext
+    public class sqlServerDbContext: DbContext
     {
-        public sqliteDbContext(DbContextOptions<sqliteDbContext> options):base(options)
+        public sqlServerDbContext(DbContextOptions<sqlServerDbContext> options):base(options)
         {
             
         }
