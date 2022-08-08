@@ -19,12 +19,5 @@ namespace backend.Controllers
         {
             return Ok(await userContext.GetUsers());
         }
-
-        [HttpPost]
-        public async Task<ActionResult> AddUser([FromBody] UserDto user)
-        {
-            var new_user = await userContext.AddUser(user);
-            return Ok(new_user);
-        }
     }
 }
