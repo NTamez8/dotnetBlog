@@ -10,6 +10,7 @@ builder.Services.AddDbContext<sqlServerDbContext>(options => {
     );
 });
 builder.Services.AddTransient<IUserContext,sqlServerUserContext>();
+builder.Services.AddTransient<IBlogPostContext,sqlServerBlogPostContext>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

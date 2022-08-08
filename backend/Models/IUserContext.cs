@@ -5,6 +5,6 @@ namespace backend.Models
     {
         public Task<IEnumerable<User>> GetUsers();
 
-        public Task<User> AddUser(User user);
+        public Task<User> AddUser(UserDto user);
     }    
 }

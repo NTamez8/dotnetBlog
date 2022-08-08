@@ -21,7 +21,7 @@ namespace backend.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddUser([FromBody] User user)
+        public async Task<ActionResult> AddUser([FromBody] UserDto user)
         {
             var new_user = await userContext.AddUser(user);
             return Ok(new_user);

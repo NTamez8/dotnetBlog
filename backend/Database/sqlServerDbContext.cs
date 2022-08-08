@@ -10,6 +10,8 @@ namespace backend.Database
         }
 
         public DbSet<User> Users {get; set;}
+
+        public DbSet<BlogPost> Blogs {get; set;}
     }
 
 

@@ -24,11 +24,16 @@ namespace backend.Models
         }
 
 
-        public async Task<User> AddUser(User user)
-        {
-            await context.Users.AddAsync(user);
+        public async Task<User> AddUser(UserDto user)
+        {   
+            var new_user = new User{
+                Name = user.Name,
+                Password = user.Password,
+                Email = user.Email
+            };
+            var result = await context.Users.AddAsync(new_user);
             await context.SaveChangesAsync();
-            return user;
+            return result.Entity;
         }
     }
 
