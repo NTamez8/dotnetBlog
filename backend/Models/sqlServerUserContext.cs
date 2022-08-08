@@ -28,7 +28,7 @@ namespace backend.Models
         {   
             var new_user = new User{
                 Name = user.Name,
-                Password = user.Password,
+                PasswordHash = user.Password,
                 Email = user.Email
             };
             var result = await context.Users.AddAsync(new_user);

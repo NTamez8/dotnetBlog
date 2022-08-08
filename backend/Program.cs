@@ -1,6 +1,7 @@
 using backend.Database;
 using Microsoft.EntityFrameworkCore;
 using backend.Models;
+using Microsoft.AspNetCore.Identity;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,6 +10,11 @@ builder.Services.AddDbContext<sqlServerDbContext>(options => {
         builder.Configuration.GetConnectionString("SqlServer")
     );
 });
+
+builder.Services.AddIdentity<User,IdentityRole>()
+    .AddEntityFrameworkStores<sqlServerDbContext>()
+    .AddDefaultTokenProviders();
+
 builder.Services.AddTransient<IUserContext,sqlServerUserContext>();
 builder.Services.AddTransient<IBlogPostContext,sqlServerBlogPostContext>();
 builder.Services.AddControllers();
